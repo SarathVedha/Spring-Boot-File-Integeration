@@ -1,0 +1,56 @@
+server:
+  port: 8080
+
+app:
+  file:
+    local:
+      src: D:\Files\
+      dest: D:\Copy_Files\
+      fileFilter: "*.*"
+  sftp:
+    host: localhost
+    port: 22
+    userName: sftpuser
+#    password: Welcome@01
+    privateKey: /keys/id_rsa
+    remoteDownloadDirectory: /download/
+    remoteDownloadFileFilter: "*.*"
+    localDownloadDirectory: D:\SFTP_Files\
+    remoteUploadDirectory: /upload/
+    localUploadDirectory: D:\Temp\
+
+springdoc:
+  swagger-ui:
+    path: /swagger-ui
+    filter: true
+    operations-sorter: alpha
+    tags-sorter: alpha
+    groups-order: asc
+    layout: BaseLayout # DefaultLayout, StackedLayout, DocExpansion, ListLayout, DeepLinking, DisplayOperationId, DefaultModelsExpandDepth, DefaultModelExpandDepth, DefaultModelRendering, DisplayRequestDuration, DocExpansion, Filter, MaxDisplayedTags, OperationsSorter, ShowExtensions, TagsSorter, UrisSorter
+    display-request-duration: true
+
+management:
+  endpoint:
+    health:
+      show-details: always
+    shutdown:
+      enabled: true
+    env:
+      show-values: always
+    configprops:
+      show-values: always
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+  info:
+    env:
+      enabled: true
+    os:
+      enabled: true
+    java:
+      enabled: true
+    build:
+      enabled: true
+
+#logging.level.org.apache.sshd: DEBUG
